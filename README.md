@@ -1,196 +1,161 @@
-# CCTV Violence Detection System
+# CCTV Anomaly Detection System
 
-## Project Structure and Team Responsibilities
+A real-time surveillance system that uses computer vision and machine learning to detect anomalies and potential violent activities in CCTV footage.
 
-### Member 1: Video Processing & Detection Core
-**Responsibilities:**
-- Implementation and optimization of YOLO model integration
-- Real-time video processing pipeline
-- Person detection and tracking algorithms
-- Frame processing optimization
+## 🚀 Features
+
+- Real-time video processing using YOLO object detection
+- Multiple input sources (DroidCam, uploaded videos)
+- Advanced anomaly detection algorithms
 - Context-aware detection system
-
-**Key Files:**
-- `advanced_detection.py`
-- `context_aware_detection.py`
-- Video processing components in `app.py`
-
-**Technical Focus:**
-- Computer Vision
-- Deep Learning Models
-- Performance Optimization
-- Real-time Processing
-
-### Member 2: Database & Logging System
-**Responsibilities:**
-- Database management and optimization
-- Anomaly logging system
-- Data persistence implementation
-- Query optimization
-- Analytics and reporting system
-
-**Key Files:**
-- `database.py`
-- Logging components in `app.py`
-- JSON log handling
-- Analytics dashboard
-
-**Technical Focus:**
-- Database Design
-- Data Management
-- System Logging
-- Analytics Implementation
-
-### Member 3: UI/UX & Camera Integration
-**Responsibilities:**
-- Streamlit UI development
-- Camera integration (DroidCam)
-- User authentication system
-- Email notification system
-- Frontend optimizations
-
-**Key Files:**
-- UI components in `app.py`
-- Authentication system
-- Email notification system
-- Camera connection handling
-
-**Technical Focus:**
-- Frontend Development
-- User Experience
-- System Integration
-- Notification Systems
-
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies: `pip install -r requirements.txt`
-3. Set up the database
-4. Configure email settings
-5. Run the application: `streamlit run app.py`
-
-## Development Guidelines
-
-1. Each team member should work in their own branch
-2. Use meaningful commit messages
-3. Document your code
-4. Write unit tests for new features
-5. Review each other's code before merging
-
-## Communication
-
-- Regular team meetings for progress updates
-- Use GitHub issues for task tracking
-- Document major decisions and changes
-
-## Dependencies
-
-- Python 3.10+
-- OpenCV
-- YOLO
-- Streamlit
-- SQLite
-- Other requirements in `requirements.txt`
-
-## Features
-
-- Real-time video stream processing
-- Violence detection using YOLO and custom algorithms
-- Multiple camera support
 - Email notifications for detected anomalies
-- User authentication and role-based access
-- Anomaly logging and reporting
-- Configurable detection thresholds
-- Web-based interface using Streamlit
+- Secure user authentication
+- Incident logging and management
+- Video recording capabilities
+- Detailed anomaly logs with filtering options
 
-## Installation
+## 📋 User Stories
+
+### Authentication & User Management
+- As a security administrator, I want to log in securely to access the system
+- As a user, I want to be able to log out of the system
+- As an administrator, I want to manage different user roles and permissions
+
+### Video Processing
+- As a security operator, I want to connect to DroidCam for real-time surveillance
+- As a user, I want to upload pre-recorded videos for analysis
+- As a user, I want to record surveillance footage for later review
+- As a user, I want to see real-time video processing with bounding boxes
+
+### Anomaly Detection
+- As a security operator, I want to be notified when anomalies are detected
+- As a user, I want to receive email notifications for detected incidents
+- As a user, I want to see detailed information about detected anomalies
+- As a user, I want to filter and search through anomaly logs
+
+### System Management
+- As an administrator, I want to configure email notification settings
+- As a user, I want to view system statistics and performance metrics
+- As a user, I want to manage and organize recorded incidents
+
+## 🎯 Sprint Planning
+
+### Sprint 1: Foundation (2 weeks)
+- [x] Project setup and environment configuration
+- [x] Basic user authentication system
+- [x] YOLO model integration
+- [x] Basic video processing pipeline
+
+### Sprint 2: Core Features (2 weeks)
+- [x] Real-time video processing
+- [x] DroidCam integration
+- [x] Basic anomaly detection
+- [x] Video recording functionality
+
+### Sprint 3: Advanced Detection (2 weeks)
+- [x] Context-aware detection system
+- [x] Advanced anomaly detection algorithms
+- [x] Email notification system
+- [x] Incident logging system
+
+### Sprint 4: User Interface & Management (2 weeks)
+- [x] Enhanced user interface
+- [x] Anomaly log management
+- [x] System statistics and monitoring
+- [x] User role management
+
+### Sprint 5: Optimization & Testing (2 weeks)
+- [x] Performance optimization
+- [x] System testing
+- [x] Bug fixes
+- [x] Documentation
+
+## 🛠️ Setup Instructions
+
+### Prerequisites
+- Python 3.8+
+- CUDA-capable GPU (recommended)
+- DroidCam app (for mobile camera integration)
+
+### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/anomaly-detection.git
-cd anomaly-detection
+git clone https://github.com/yourusername/cctv-anomaly-detection.git
+cd cctv-anomaly-detection
 ```
 
-2. Create a virtual environment (recommended):
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install dependencies:
+2. Install required packages:
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Configure the system:
-- Copy `config.py` to `config_local.py` and modify settings as needed
-- Set up your email credentials for notifications
-- Configure camera settings
+3. Set up the database:
+```bash
+python setup_database.py
+```
 
-## Usage
+4. Configure email settings:
+- Enable 2-Step Verification in your Google Account
+- Generate an App Password
+- Update the email configuration in the application
+
+### Running the Application
 
 1. Start the application:
 ```bash
 streamlit run app.py
 ```
 
-2. Access the web interface at `http://localhost:8501`
+2. Access the application at `http://localhost:8501`
 
-3. Login with default credentials:
-- Username: admin
-- Password: admin123
+## 📦 Project Structure
 
-4. Configure cameras and detection settings
+```
+cctv-anomaly-detection/
+├── app.py                 # Main application file
+├── advanced_detection.py  # Advanced anomaly detection algorithms
+├── context_aware_detection.py  # Context-aware detection system
+├── database.py           # Database management
+├── requirements.txt      # Project dependencies
+├── setup_database.py     # Database setup script
+├── recordings/          # Directory for recorded videos
+├── incidents/          # Directory for incident images
+└── anomaly_logs/       # Directory for anomaly logs
+```
 
-5. Start monitoring
+## 🔧 Configuration
 
-## Database
+### Email Configuration
+1. Go to Google Account settings
+2. Enable 2-Step Verification
+3. Generate App Password
+4. Update `EMAIL_ADDRESS` and `EMAIL_PASSWORD` in the application
 
-The system uses SQLite for data storage. The database is automatically created and initialized on first run.
+### DroidCam Setup
+1. Install DroidCam on your mobile device
+2. Connect to the same WiFi network
+3. Note the IP address and port from the DroidCam app
+4. Enter these details in the application
 
-### Database Schema
-
-- `users`: User authentication and roles
-- `cameras`: Camera configurations and status
-- `anomalies`: Detected anomalies and related data
-- `system_settings`: System configuration settings
-
-## Configuration
-
-### Email Setup
-
-1. Enable 2-Step Verification in your Google Account
-2. Generate an App Password
-3. Update the email configuration in `config_local.py`
-
-### Camera Setup
-
-1. Add cameras through the web interface
-2. Configure IP address and port
-3. Test connection before starting monitoring
-
-## Security
-
-- All passwords are hashed using SHA-256
-- User authentication required for all operations
-- Role-based access control
-- Secure email notifications
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## License
+## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## 👥 Authors
 
-- YOLO for object detection
-- OpenCV for computer vision
-- Streamlit for web interface
-- All contributors and users 
+- Your Name - Initial work
+
+## 🙏 Acknowledgments
+
+- YOLO team for the object detection model
+- Streamlit for the web application framework
+- OpenCV for computer vision capabilities
